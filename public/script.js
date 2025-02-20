@@ -1,16 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Asignación de eventos para mostrar opciones adicionales
-    document.getElementById("tipo_institucion").addEventListener("change", mostrarOtroInstitucion);
-    document.getElementById("area_empresa").addEventListener("change", mostrarSubareas);
-    document.getElementById("tamano_empresa_sector").addEventListener("change", mostrarTamanoEmpresa);
-    document.getElementById("empresa_ti").addEventListener("change", mostrarPreguntasEmprendimiento);
+    // Verificar si los elementos existen antes de asignar eventos
+    const tipoInstitucion = document.getElementById("tipo_institucion");
+    const areaEmpresa = document.getElementById("area_empresa");
+    const tamanoEmpresaSector = document.getElementById("tamano_empresa_sector");
+    const empresaTi = document.getElementById("empresa_ti");
+
+    if (tipoInstitucion) tipoInstitucion.addEventListener("change", mostrarOtroInstitucion);
+    if (areaEmpresa) areaEmpresa.addEventListener("change", mostrarSubareas);
+    if (tamanoEmpresaSector) tamanoEmpresaSector.addEventListener("change", mostrarTamanoEmpresa);
+    if (empresaTi) empresaTi.addEventListener("change", mostrarPreguntasEmprendimiento);
 
     function mostrarOtroInstitucion() {
-        document.getElementById("otro_tipo").style.display = document.getElementById("tipo_institucion").value === "otro" ? "block" : "none";
+        const otroTipo = document.getElementById("otro_tipo");
+        if (!otroTipo) return;
+        otroTipo.style.display = tipoInstitucion.value === "otro" ? "block" : "none";
     }
 
     function mostrarSubareas() {
         const subareaSelect = document.getElementById("subarea");
+        if (!subareaSelect) return;
         subareaSelect.innerHTML = ""; 
         subareaSelect.style.display = "block";
         subareaSelect.required = true;
@@ -24,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             inmobiliarias: ["Venta y alquiler de propiedades", "Administración de propiedades", "Inversiones inmobiliarias"]
         };
 
-        const areaSeleccionada = document.getElementById("area_empresa").value;
+        const areaSeleccionada = areaEmpresa.value;
         if (opciones[areaSeleccionada]) {
             opciones[areaSeleccionada].forEach(subarea => {
                 let option = document.createElement("option");
@@ -37,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarTamanoEmpresa() {
         const tamanoSelect = document.getElementById("tamano_empresa");
+        if (!tamanoSelect) return;
         tamanoSelect.innerHTML = "";
         tamanoSelect.style.display = "block";
         tamanoSelect.required = true;
@@ -47,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             servicios: ["Micro (0-20 empleados)", "Pequeña (21-50 empleados)", "Mediana (51-100 empleados)", "Grande (101 en adelante)"]
         };
 
-        const sectorSeleccionado = document.getElementById("tamano_empresa_sector").value;
+        const sectorSeleccionado = tamanoEmpresaSector.value;
         if (opcionesTamano[sectorSeleccionado]) {
             opcionesTamano[sectorSeleccionado].forEach(tamano => {
                 let option = document.createElement("option");
@@ -59,12 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function mostrarPreguntasEmprendimiento() {
-        document.getElementById("preguntas_emprendimiento").style.display =
-            document.getElementById("empresa_ti").value === "si" ? "block" : "none";
+        const preguntasDiv = document.getElementById("preguntas_emprendimiento");
+        if (!preguntasDiv) return;
+        preguntasDiv.style.display = empresaTi.value === "si" ? "block" : "none";
     }
 
     // Manejo del formulario y envío a la API
     const form = document.getElementById("surveyForm");
+    if (!form) return;
+
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
@@ -73,13 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.forEach((value, key) => { jsonObject[key] = value.trim(); });
 
         try {
-            const response = await fetch("/api/sendEmail", {
+            const response = await fetch(`${window.location.origin}/api/sendEmail`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(jsonObject),
             });
 
-            if (!response.ok) throw new Error("Error en el servidor");
+            if (!response.ok) throw new Error(`Error en el servidor: ${await response.text()}`);
 
             alert("Encuesta enviada con éxito ✅");
             form.reset();

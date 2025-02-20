@@ -190,7 +190,137 @@
                     <input type="text" id="otro_apoyo" name="otro_apoyo" placeholder="Especifique otro apoyo" style="display: none;">
                 </div>
             </section>
-            
+            <!-- Sección C: Competencias Genéricas y Específicas -->
+<section>
+    <h2>Sección C: Competencias Genéricas y Específicas</h2>
+
+    <h3>1. Evalúe su nivel de dominio en las siguientes competencias genéricas al momento de graduarse:</h3>
+    <p>La escala de valoración es la siguiente:</p>
+    <ul>
+        <li>(1) Nada competente</li>
+        <li>(2) Poco competente</li>
+        <li>(3) Medianamente competente</li>
+        <li>(4) Competente</li>
+        <li>(5) Muy competente</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Competencia Genérica</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Pensamiento Crítico</td> <td><input type="radio" name="pensamiento_critico" value="1"></td> <td><input type="radio" name="pensamiento_critico" value="2"></td> <td><input type="radio" name="pensamiento_critico" value="3"></td> <td><input type="radio" name="pensamiento_critico" value="4"></td> <td><input type="radio" name="pensamiento_critico" value="5"></td></tr>
+            <tr><td>Resolución de Problemas</td> <td><input type="radio" name="resolucion_problemas" value="1"></td> <td><input type="radio" name="resolucion_problemas" value="2"></td> <td><input type="radio" name="resolucion_problemas" value="3"></td> <td><input type="radio" name="resolucion_problemas" value="4"></td> <td><input type="radio" name="resolucion_problemas" value="5"></td></tr>
+            <tr><td>Comunicación oral con claridad</td> <td><input type="radio" name="comunicacion_oral" value="1"></td> <td><input type="radio" name="comunicacion_oral" value="2"></td> <td><input type="radio" name="comunicacion_oral" value="3"></td> <td><input type="radio" name="comunicacion_oral" value="4"></td> <td><input type="radio" name="comunicacion_oral" value="5"></td></tr>
+            <tr><td>Comunicación escrita adecuada</td> <td><input type="radio" name="comunicacion_escrita" value="1"></td> <td><input type="radio" name="comunicacion_escrita" value="2"></td> <td><input type="radio" name="comunicacion_escrita" value="3"></td> <td><input type="radio" name="comunicacion_escrita" value="4"></td> <td><input type="radio" name="comunicacion_escrita" value="5"></td></tr>
+            <tr><td>Trabajo en Equipo</td> <td><input type="radio" name="trabajo_equipo" value="1"></td> <td><input type="radio" name="trabajo_equipo" value="2"></td> <td><input type="radio" name="trabajo_equipo" value="3"></td> <td><input type="radio" name="trabajo_equipo" value="4"></td> <td><input type="radio" name="trabajo_equipo" value="5"></td></tr>
+            <tr><td>Liderazgo</td> <td><input type="radio" name="liderazgo" value="1"></td> <td><input type="radio" name="liderazgo" value="2"></td> <td><input type="radio" name="liderazgo" value="3"></td> <td><input type="radio" name="liderazgo" value="4"></td> <td><input type="radio" name="liderazgo" value="5"></td></tr>
+            <tr><td>Aprendizaje Continuo</td> <td><input type="radio" name="aprendizaje_continuo" value="1"></td> <td><input type="radio" name="aprendizaje_continuo" value="2"></td> <td><input type="radio" name="aprendizaje_continuo" value="3"></td> <td><input type="radio" name="aprendizaje_continuo" value="4"></td> <td><input type="radio" name="aprendizaje_continuo" value="5"></td></tr>
+            <tr><td>Adaptabilidad</td> <td><input type="radio" name="adaptabilidad" value="1"></td> <td><input type="radio" name="adaptabilidad" value="2"></td> <td><input type="radio" name="adaptabilidad" value="3"></td> <td><input type="radio" name="adaptabilidad" value="4"></td> <td><input type="radio" name="adaptabilidad" value="5"></td></tr>
+            <tr><td>Ética Profesional</td> <td><input type="radio" name="etica_profesional" value="1"></td> <td><input type="radio" name="etica_profesional" value="2"></td> <td><input type="radio" name="etica_profesional" value="3"></td> <td><input type="radio" name="etica_profesional" value="4"></td> <td><input type="radio" name="etica_profesional" value="5"></td></tr>
+            <tr><td>Innovación y Emprendimiento</td> <td><input type="radio" name="innovacion_emprendimiento" value="1"></td> <td><input type="radio" name="innovacion_emprendimiento" value="2"></td> <td><input type="radio" name="innovacion_emprendimiento" value="3"></td> <td><input type="radio" name="innovacion_emprendimiento" value="4"></td> <td><input type="radio" name="innovacion_emprendimiento" value="5"></td></tr>
+            <tr><td>Trabajo bajo presión</td> <td><input type="radio" name="trabajo_bajo_presion" value="1"></td> <td><input type="radio" name="trabajo_bajo_presion" value="2"></td> <td><input type="radio" name="trabajo_bajo_presion" value="3"></td> <td><input type="radio" name="trabajo_bajo_presion" value="4"></td> <td><input type="radio" name="trabajo_bajo_presion" value="5"></td></tr>
+        </tbody>
+    </table>
+
+    <h3>2. Evalúe su nivel de dominio en las siguientes áreas de conocimiento específicas al momento de graduarse:</h3>
+
+    <h4>1. Desarrollo de Software</h4>
+    <p>Seleccione su nivel de competencia:</p>
+    <select id="desarrollo_software" name="desarrollo_software">
+        <option value="1">Nada competente</option>
+        <option value="2">Poco competente</option>
+        <option value="3">Medianamente competente</option>
+        <option value="4">Competente</option>
+        <option value="5">Muy competente</option>
+    </select>
+    
+    <h4>2. Administración de Sistemas y Redes</h4>
+    <p>Seleccione su nivel de competencia:</p>
+    <select id="admin_sistemas_redes" name="admin_sistemas_redes">
+        <option value="1">Nada competente</option>
+        <option value="2">Poco competente</option>
+        <option value="3">Medianamente competente</option>
+        <option value="4">Competente</option>
+        <option value="5">Muy competente</option>
+    </select>
+    
+    <h4>3. Base de Datos</h4>
+    <p>Seleccione su nivel de competencia:</p>
+    <select id="base_datos" name="base_datos">
+        <option value="1">Nada competente</option>
+        <option value="2">Poco competente</option>
+        <option value="3">Medianamente competente</option>
+        <option value="4">Competente</option>
+        <option value="5">Muy competente</option>
+    </select>
+    
+    <h4>4. Seguridad Informática</h4>
+    <p>Seleccione su nivel de competencia:</p>
+    <select id="seguridad_informatica" name="seguridad_informatica">
+        <option value="1">Nada competente</option>
+        <option value="2">Poco competente</option>
+        <option value="3">Medianamente competente</option>
+        <option value="4">Competente</option>
+        <option value="5">Muy competente</option>
+    </select>
+    
+    <h4>5. Gestión de Proyectos de TI</h4>
+    <p>Seleccione su nivel de competencia:</p>
+    <select id="gestion_proyectos_ti" name="gestion_proyectos_ti">
+        <option value="1">Nada competente</option>
+        <option value="2">Poco competente</option>
+        <option value="3">Medianamente competente</option>
+        <option value="4">Competente</option>
+        <option value="5">Muy competente</option>
+    </select>
+
+    <h4>6. Arquitectura de TI</h4>
+<p>Seleccione su nivel de competencia:</p>
+<select id="arquitectura_ti" name="arquitectura_ti">
+    <option value="1">Nada competente</option>
+    <option value="2">Poco competente</option>
+    <option value="3">Medianamente competente</option>
+    <option value="4">Competente</option>
+    <option value="5">Muy competente</option>
+</select>
+
+<h4>7. Cloud Computing y Virtualización</h4>
+<p>Seleccione su nivel de competencia:</p>
+<select id="cloud_virtualizacion" name="cloud_virtualizacion">
+    <option value="1">Nada competente</option>
+    <option value="2">Poco competente</option>
+    <option value="3">Medianamente competente</option>
+    <option value="4">Competente</option>
+    <option value="5">Muy competente</option>
+</select>
+
+<h4>8. DevOps y Automatización</h4>
+<p>Seleccione su nivel de competencia:</p>
+<select id="devops_automatizacion" name="devops_automatizacion">
+    <option value="1">Nada competente</option>
+    <option value="2">Poco competente</option>
+    <option value="3">Medianamente competente</option>
+    <option value="4">Competente</option>
+    <option value="5">Muy competente</option>
+</select>
+
+<h4>9. Adaptación a Nuevas Tecnologías</h4>
+<p>Seleccione su nivel de competencia:</p>
+<select id="adaptacion_nuevas_tecnologias" name="adaptacion_nuevas_tecnologias">
+    <option value="1">Nada competente</option>
+    <option value="2">Poco competente</option>
+    <option value="3">Medianamente competente</option>
+    <option value="4">Competente</option>
+    <option value="5">Muy competente</option>
+</select>
             
             <!-- Botón de Enviar -->
             <button type="submit">Enviar Encuesta</button>

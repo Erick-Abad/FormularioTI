@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-module.exports = async function (req, res) {
+module.exports = async (req, res) => {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Método no permitido" });
     }
@@ -11,21 +11,21 @@ module.exports = async function (req, res) {
 
     try {
         const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
+            service: "gmail",
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
         });
 
-        await transporter.sendMail({
-            from: `"Encuesta UG" <${process.env.EMAIL_USER}>`,
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
             to: process.env.EMAIL_TO,
             subject: "Nueva Encuesta de Graduados",
-            text: JSON.stringify(req.body, null, 2),
-        });
+            text: `Datos del formulario:\n${JSON.stringify(req.body, null, 2)}`,
+        };
+
+        await transporter.sendMail(mailOptions);
 
         res.status(200).json({ message: "Correo enviado con éxito ✅" });
     } catch (error) {

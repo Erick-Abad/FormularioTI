@@ -1,0 +1,17 @@
+{
+  "name": "proyecto-encuesta-ug",
+  "version": "1.0.0",
+  "main": "index.js",
+"scripts": {
+  "dev": "vercel dev"
+},
+
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "nodemailer": "^6.10.0"
+  }
+}

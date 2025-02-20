@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Graduados - Universidad de Guayaquil</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Encuesta de Seguimiento a Graduados de TI</h1>
+            <p>Esta encuesta está dirigida a los graduados de las carreras de Sistemas Computacionales, Software, Networking y Tecnologías de la Información de la Facultad de Ciencias Matemáticas y Físicas de la Universidad de Guayaquil.</p>
+            <p>El objetivo es conocer su percepción sobre la formación recibida y su impacto en la empleabilidad para mejorar los programas académicos y fortalecer el vínculo entre la universidad y sus graduados.</p>
+            <p>Su participación es fundamental y la información proporcionada será tratada de manera confidencial, conforme a la Ley Orgánica de Protección de Datos Personales del Ecuador.</p>
+        </header>
+        
+        <form id="surveyForm">
+            <!-- Sección A: Datos Personales y Académicos -->
+            <section>
+                <h2>Sección A: Datos Personales y Académicos</h2>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" required>
+                
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" required>
+                
+                <label for="cedula">Número de Cédula:</label>
+                <input type="text" id="cedula" name="cedula" pattern="\d{10}" maxlength="10" required>
+                
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+                
+                <label for="discapacidad">¿Posee algún tipo de discapacidad?</label>
+                <select id="discapacidad" name="discapacidad" required>
+                    <option value="fisica">Física</option>
+                    <option value="intelectual">Intelectual</option>
+                    <option value="ninguna">Ninguna</option>
+                </select>
+                
+                <label for="estado_civil">Seleccione su estado civil:</label>
+                <select id="estado_civil" name="estado_civil" required>
+                    <option value="soltero">Soltero/a</option>
+                    <option value="casado">Casado/a</option>
+                    <option value="divorciado">Divorciado/a</option>
+                    <option value="viudo">Viudo/a</option>
+                    <option value="union_libre">Unión libre</option>
+                </select>
+                
+                <label for="cargas_familiares">Seleccione el número de cargas familiares:</label>
+                <select id="cargas_familiares" name="cargas_familiares" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="mas_de_3">Más de 3</option>
+                </select>
+                
+                <label for="edad">Seleccione su rango de edad:</label>
+                <select id="edad" name="edad" required>
+                    <option value="22-25">De 22 a 25</option>
+                    <option value="26-30">De 26 a 30</option>
+                    <option value="31-35">De 31 a 35</option>
+                    <option value="36-40">De 36 a 40</option>
+                    <option value="mayor40">Mayor de 40</option>
+                </select>
+                
+                <label for="sexo">Seleccione su sexo:</label>
+                <select id="sexo" name="sexo" required>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                </select>
+                
+                <label for="carrera">Carrera de graduación:</label>
+                <select id="carrera" name="carrera" required>
+                    <option value="networking">Ingeniería en Networking</option>
+                    <option value="sistemas">Ingeniería en Sistemas Computacionales</option>
+                    <option value="software">Ingeniería en Software</option>
+                    <option value="tic">Ingeniería en Tecnologías de la Información y Comunicación</option>
+                </select>
+                
+                <label for="anio_graduacion">Año de graduación:</label>
+                <select id="anio_graduacion" name="anio_graduacion" required>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+            </section>
+            <!-- Sección b: Situacion laboral -->
+
+            <section>
+                <h2>Sección B: Situación Laboral</h2>
+                
+                <label for="situacion_laboral">Seleccione su situación laboral:</label>
+                <select id="situacion_laboral" name="situacion_laboral" required>
+                    <option value="tiempo_completo">Empleado a tiempo completo</option>
+                    <option value="tiempo_parcial">Empleado a tiempo parcial</option>
+                    <option value="independiente">Profesional independiente</option>
+                    <option value="desempleado">Desempleado (buscando activamente empleo)</option>
+                </select>
+            
+                <label for="tipo_institucion">Indique el tipo de institución en la que labora o laboró:</label>
+                <select id="tipo_institucion" name="tipo_institucion" required onchange="mostrarOtroInstitucion()">
+                    <option value="publica">Pública</option>
+                    <option value="privada">Privada</option>
+                    <option value="religiosa">Religiosa</option>
+                    <option value="ong">Organización social (ONG)</option>
+                    <option value="extranjera">Organismo extranjero</option>
+                    <option value="otro">Otro (especifique)</option>
+                </select>
+                <input type="text" id="otro_tipo" name="otro_tipo" placeholder="Especifique otro tipo" style="display: none;">
+                
+                <label for="area_empresa">Área en la que se desempeña la empresa donde labora/laboró:</label>
+                <select id="area_empresa" name="area_empresa" required onchange="mostrarSubareas()">
+                    <option value="agropecuario">Sector Agropecuario y Recursos Naturales</option>
+                    <option value="industria">Industrias</option>
+                    <option value="comercio">Comercio</option>
+                    <option value="servicios">Servicios</option>
+                    <option value="edificacion">Edificación y Urbanismo</option>
+                    <option value="inmobiliarias">Actividades inmobiliarias y de alquiler</option>
+                </select>
+                <select id="subarea" name="subarea" required style="display: none;"></select>
+                
+                <label for="tamano_empresa">Seleccione el tamaño de la empresa en la que trabaja/trabajó:</label>
+                <select id="tamano_empresa_sector" name="tamano_empresa_sector" required onchange="mostrarTamanoEmpresa()">
+                    <option value="industria">Industria</option>
+                    <option value="comercio">Comercio</option>
+                    <option value="servicios">Servicios</option>
+                </select>
+                <select id="tamano_empresa" name="tamano_empresa" required style="display: none;"></select>
+                
+                <label for="negocio_ti">¿Ha considerado iniciar su propio negocio o emprendimiento en el área de TI?</label>
+                <select id="negocio_ti" name="negocio_ti" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+                
+                <label for="empresa_ti">¿Ha fundado o participado en el desarrollo de alguna empresa o emprendimiento relacionado con las TI?</label>
+                <select id="empresa_ti" name="empresa_ti" required onchange="mostrarPreguntasEmprendimiento()">
+                    <option value="no">No</option>
+                    <option value="si">Sí</option>
+                    
+                </select>
+                
+                <div id="preguntas_emprendimiento" style="display: none;">
+                    <label for="exito_emprendimiento">Si ha creado su propia empresa o emprendimiento, ¿cómo calificaría el éxito de su emprendimiento hasta el momento?</label>
+                    <select id="exito_emprendimiento" name="exito_emprendimiento">
+                        <option value="nada">Nada Exitoso</option>
+                        <option value="poco">Poco Exitoso</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="exitoso">Exitoso</option>
+                        <option value="muy_exitoso">Muy Exitoso</option>
+                    </select>
+                    
+                    <label for="desafios">¿Cuáles fueron los principales desafíos que enfrentó al iniciar su emprendimiento?</label>
+                    <select id="desafios" name="desafios">
+                        <option value="tramites">Dificultad de realizar trámites administrativos</option>
+                        <option value="financieros">Falta de recursos financieros</option>
+                        <option value="credito">Dificultad para obtener crédito bancario</option>
+                        <option value="espacio">Conseguir un espacio apropiado</option>
+                        <option value="capacitacion">Falta de capacitación en gestión empresarial</option>
+                        <option value="contactos">Dificultad para acceder a redes de contactos o clientes</option>
+                        <option value="otro">Otro (especifique)</option>
+                    </select>
+                    <input type="text" id="otro_desafio" name="otro_desafio" placeholder="Especifique otro desafío" style="display: none;">
+                    
+                    <label for="formacion_util">¿Considera que el nivel de formación recibida en la universidad fue útil para su emprendimiento?</label>
+                    <select id="formacion_util" name="formacion_util">
+                        <option value="totalmente_desacuerdo">Totalmente en desacuerdo</option>
+                        <option value="desacuerdo">En desacuerdo</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="acuerdo">De acuerdo</option>
+                        <option value="totalmente_acuerdo">Totalmente de acuerdo</option>
+                    </select>
+                    
+                    <label for="apoyo_universidad">¿Qué tipo de apoyo o recursos cree que la universidad podría ofrecer para fomentar el emprendimiento entre los graduados?</label>
+                    <select id="apoyo_universidad" name="apoyo_universidad">
+                        <option value="ferias">Ferias de trabajo</option>
+                        <option value="empleo">Plataforma de empleo y bolsa de empleo</option>
+                        <option value="coworking">Espacios de Trabajo (Coworking)</option>
+                        <option value="educacion">Programas de educación continua</option>
+                        <option value="otro">Otro (especifique)</option>
+                    </select>
+                    <input type="text" id="otro_apoyo" name="otro_apoyo" placeholder="Especifique otro apoyo" style="display: none;">
+                </div>
+            </section>
+            
+            
+            <!-- Botón de Enviar -->
+            <button type="submit">Enviar Encuesta</button>
+        </form>
+    </div>
+</body>
+</html>

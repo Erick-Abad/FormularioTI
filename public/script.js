@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tipoInstitucion = document.getElementById("tipo_institucion");
     const areaEmpresa = document.getElementById("area_empresa");
     const tamanoEmpresaSector = document.getElementById("tamano_empresa_sector");
+    const tamanoEmpresa = document.getElementById("tamano_empresa"); // Nuevo: Referencia al select de tamaño de empresa
     const empresaTi = document.getElementById("empresa_ti");
 
     if (tipoInstitucion) tipoInstitucion.addEventListener("change", mostrarOtroInstitucion);
@@ -89,6 +90,26 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        // Nueva validación: Verificar si el usuario ha respondido "Área en la que se desempeña la empresa"
+        if (!areaEmpresa.value) {
+            alert("Por favor, seleccione el área en la que se desempeña la empresa donde labora/laboró.");
+            areaEmpresa.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        // Nueva validación: Verificar si el usuario ha respondido "Tamaño de la empresa"
+        if (!tamanoEmpresaSector.value) {
+            alert("Por favor, seleccione el sector de la empresa.");
+            tamanoEmpresaSector.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        if (!tamanoEmpresa.value) {
+            alert("Por favor, seleccione el tamaño de la empresa.");
+            tamanoEmpresa.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
         const requiredFields = [
             { name: "primer_empleo", label: "¿En qué tiempo obtuvo su primer empleo?" },
             { name: "importancia_conocimientos", label: "¿Qué tan importante considera que son los conocimientos adquiridos en la universidad para su primer empleo?" },
@@ -104,56 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!document.querySelector(`input[name="${field.name}"]:checked`)) {
                 alert(`Falta escoger el casillero: ${field.label}`);
                 document.querySelector(`input[name="${field.name}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
-                return;
-            }
-        }
-
-        const checkboxGroups = [
-            { name: "dificultades_empleo", label: "Seleccione los motivos que dificultan obtener un empleo en su área profesional" },
-            { name: "conocimientos_faltantes", label: "¿Qué conocimientos en su área considera que le hicieron falta?" },
-            { name: "pruebas_seleccion", label: "Durante sus procesos de búsqueda de empleo, ¿qué tipo de pruebas o instrumentos de selección ha experimentado?" }
-        ];
-
-        for (let group of checkboxGroups) {
-            const checkboxes = document.querySelectorAll(`input[name="${group.name}"]:checked`);
-            if (checkboxes.length === 0) {
-                alert(`Falta escoger el casillero: ${group.label}`);
-                document.querySelector(`input[name="${group.name}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
-                return;
-            }
-        }
-
-        // Comentario: Agregamos la validación de las preguntas de la Sección E
-        const requiredSectionE = [
-            "calidad_academica",
-            "instalaciones_recursos",
-            "ambiente_universitario",
-            "oportunidades_investigacion",
-            "intercambio_relaciones",
-            "insercion_laboral",
-            "adaptabilidad_innovacion",
-            "responsabilidad_social",
-            "reputacion_universidad",
-            "preparacion_docentes",
-            "metodologia_docentes",
-            "apoyo_docentes",
-            "nivel_conocimiento",
-            "gestion_administrativa_tramites",
-            "gestion_administrativa_personal",
-            "gestion_administrativa_normativas",
-            "gestion_recursos",
-            "resolucion_problemas",
-            "satisfaccion_desarrollo",
-            "herramientas_adaptacion",
-            "frecuencia_eventos",
-            "identificacion_ug",
-            "recomienda_ug"
-        ];
-
-        for (let question of requiredSectionE) {
-            if (!obtenerValoresRadio(question)) {
-                alert(`Por favor, responda la pregunta: ${question.replace("_", " ")}`);
-                document.querySelector(`input[name="${question}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
                 return;
             }
         }

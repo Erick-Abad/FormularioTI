@@ -10,14 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (tamanoEmpresaSector) tamanoEmpresaSector.addEventListener("change", mostrarTamanoEmpresa);
     if (empresaTi) empresaTi.addEventListener("change", mostrarPreguntasEmprendimiento);
 
-    // Función para mostrar el campo "Otro tipo de institución"
     function mostrarOtroInstitucion() {
         const otroTipo = document.getElementById("otro_tipo");
         if (!otroTipo) return;
         otroTipo.style.display = tipoInstitucion.value === "otro" ? "block" : "none";
     }
 
-    // Función para mostrar subáreas según la categoría de la empresa
     function mostrarSubareas() {
         const subareaSelect = document.getElementById("subarea");
         if (!subareaSelect) return;
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Función para mostrar tamaños de empresa según el sector seleccionado
     function mostrarTamanoEmpresa() {
         const tamanoSelect = document.getElementById("tamano_empresa");
         if (!tamanoSelect) return;
@@ -70,14 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Función para mostrar preguntas adicionales sobre emprendimiento
     function mostrarPreguntasEmprendimiento() {
         const preguntasDiv = document.getElementById("preguntas_emprendimiento");
         if (!preguntasDiv) return;
         preguntasDiv.style.display = empresaTi.value === "si" ? "block" : "none";
     }
 
-    // Función para obtener valores de radio buttons
     function obtenerValoresRadio(name) {
         const opciones = document.getElementsByName(name);
         for (let i = 0; i < opciones.length; i++) {
@@ -85,10 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 return opciones[i].value;
             }
         }
-        return null; // Si no se selecciona ninguna opción
+        return null;
     }
 
-    // Manejo del formulario y envío a la API con validación de preguntas obligatorias
     const form = document.getElementById("surveyForm");
     if (!form) return;
 
@@ -114,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Verificación de al menos un checkbox en grupos de selección múltiple
         const checkboxGroups = [
             { name: "dificultades_empleo", label: "Seleccione los motivos que dificultan obtener un empleo en su área profesional" },
             { name: "conocimientos_faltantes", label: "¿Qué conocimientos en su área considera que le hicieron falta?" },
@@ -126,6 +119,41 @@ document.addEventListener("DOMContentLoaded", function () {
             if (checkboxes.length === 0) {
                 alert(`Falta escoger el casillero: ${group.label}`);
                 document.querySelector(`input[name="${group.name}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+            }
+        }
+
+        // Comentario: Agregamos la validación de las preguntas de la Sección E
+        const requiredSectionE = [
+            "calidad_academica",
+            "instalaciones_recursos",
+            "ambiente_universitario",
+            "oportunidades_investigacion",
+            "intercambio_relaciones",
+            "insercion_laboral",
+            "adaptabilidad_innovacion",
+            "responsabilidad_social",
+            "reputacion_universidad",
+            "preparacion_docentes",
+            "metodologia_docentes",
+            "apoyo_docentes",
+            "nivel_conocimiento",
+            "gestion_administrativa_tramites",
+            "gestion_administrativa_personal",
+            "gestion_administrativa_normativas",
+            "gestion_recursos",
+            "resolucion_problemas",
+            "satisfaccion_desarrollo",
+            "herramientas_adaptacion",
+            "frecuencia_eventos",
+            "identificacion_ug",
+            "recomienda_ug"
+        ];
+
+        for (let question of requiredSectionE) {
+            if (!obtenerValoresRadio(question)) {
+                alert(`Por favor, responda la pregunta: ${question.replace("_", " ")}`);
+                document.querySelector(`input[name="${question}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
                 return;
             }
         }

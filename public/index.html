@@ -321,6 +321,154 @@
     <option value="4">Competente</option>
     <option value="5">Muy competente</option>
 </select>
+<!-- Sección D: Criterios de Empleabilidad -->
+<section>
+    <h2>Sección D: Criterios de Empleabilidad</h2>
+
+    <h3>1.- ¿En qué tiempo obtuvo su primer empleo?</h3>
+    <label><input type="radio" name="primer_empleo" value="no_conseguido"> Aún no he podido conseguir empleo</label><br>
+    <label><input type="radio" name="primer_empleo" value="antes_graduarse"> Antes de graduarse</label><br>
+    <label><input type="radio" name="primer_empleo" value="0_6_meses"> 0-6 meses después de graduarse</label><br>
+    <label><input type="radio" name="primer_empleo" value="7_12_meses"> 7 a 12 meses después de graduarse</label><br>
+    <label><input type="radio" name="primer_empleo" value="mas_un_ano"> Más de un año</label>
+
+    <h3>2. Seleccione los motivos que dificultan obtener un empleo en su área profesional (Más de una opción)</h3>
+    <label><input type="checkbox" name="dificultades_empleo" value="escasez_ofertas"> Escasez de ofertas laborales</label><br>
+    <label><input type="checkbox" name="dificultades_empleo" value="falta_experiencia"> Falta de experiencia laboral</label><br>
+    <label><input type="checkbox" name="dificultades_empleo" value="competencia_alta"> Alta competencia en el mercado laboral</label><br>
+    <label><input type="checkbox" name="dificultades_empleo" value="certificaciones"> Exigencia de certificaciones específicas</label><br>
+    <label><input type="checkbox" name="dificultades_empleo" value="salarios_bajos"> Condiciones salariales no atractivas</label><br>
+    <label><input type="checkbox" name="dificultades_empleo" value="desconocimiento_tecnologias"> Desconocimiento de las nuevas tecnologías</label><br>
+    <label><input type="checkbox" name="dificultades_empleo" value="idioma"> No dominio de un segundo idioma</label><br>
+    <label><input type="checkbox" name="dificultades_empleo" value="otro"><input type="text" name="otro_dificultad" placeholder="Otro (Especifique)"></label>
+
+    <h3>3. ¿Qué tan importante considera que son los conocimientos adquiridos en la universidad para su primer empleo?</h3>
+    <label><input type="radio" name="importancia_conocimientos" value="nada"> Nada importante</label><br>
+    <label><input type="radio" name="importancia_conocimientos" value="poco"> Poco importante</label><br>
+    <label><input type="radio" name="importancia_conocimientos" value="neutral"> Neutral</label><br>
+    <label><input type="radio" name="importancia_conocimientos" value="importante"> Importante</label><br>
+    <label><input type="radio" name="importancia_conocimientos" value="muy_importante"> Muy importante</label>
+
+    <h3>4. ¿Qué conocimientos en su área considera que le hicieron falta?</h3>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="big_data"> Big Data y análisis de datos</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="modelado_bbdd"> Gestión y modelado de bases de datos</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="inteligencia_artificial"> Inteligencia Artificial</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="sistemas_distribuidos"> Sistemas distribuidos</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="devops"> DevOps y automatización de despliegue</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="moviles"> Desarrollo de aplicaciones móviles</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="desarrollo_web"> Desarrollo web</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="gestion_proyectos"> Gestión de proyectos de Software</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="ingenieria_software"> Ingeniería de Software</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="ciberseguridad"> Ciberseguridad y protección de datos</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="rpa"> RPA – Automatización de procesos de Software</label><br>
+    <label><input type="checkbox" name="conocimientos_faltantes" value="otro"><input type="text" name="otro_conocimiento" placeholder="Otra Especifique"></label>
+
+    <h3>5.- ¿Cómo encontró su empleo actual?</h3>
+    <label><input type="radio" name="como_encontro_empleo" value="bolsa_empleo"> Bolsa de empleo</label><br>
+    <label><input type="radio" name="como_encontro_empleo" value="contactos_personales"> Contactos personales</label><br>
+    <label><input type="radio" name="como_encontro_empleo" value="portales_empleo"> Portales de empleo</label><br>
+    <label><input type="radio" name="como_encontro_empleo" value="redes_sociales"> Redes sociales</label><br>
+    <label><input type="radio" name="como_encontro_empleo" value="diario"> Diario</label><br>
+    <label><input type="radio" name="como_encontro_empleo" value="otro"><input type="text" name="otro_empleo" placeholder="Otro (Especifique)"></label>
+
+    <h3>6.- Seleccione el tipo de contrato laboral que tuvo en su primer empleo como profesional de TI en Ecuador</h3>
+    <label><input type="radio" name="tipo_contrato" value="indefinido"> Contrato a tiempo indefinido</label><br>
+    <label><input type="radio" name="tipo_contrato" value="obra_servicio"> Contrato por obra o servicio determinado</label><br>
+    <label><input type="radio" name="tipo_contrato" value="eventual"> Contrato eventual</label><br>
+    <label><input type="radio" name="tipo_contrato" value="practicas"> Contrato de ampliación de prácticas preprofesionales</label><br>
+    <label><input type="radio" name="tipo_contrato" value="no_aplica"> No aplica (aún no he tenido un empleo formal)</label><br>
+    <label><input type="radio" name="tipo_contrato" value="otro"><input type="text" name="otro_contrato" placeholder="Otro (Especifique)"></label>
+
+    <h3>7.- Seleccione la modalidad en la que trabaja actualmente.</h3>
+    <label><input type="radio" name="modalidad_actual" value="presencial"> Trabajo presencial</label><br>
+    <label><input type="radio" name="modalidad_actual" value="remoto"> Teletrabajo (Remoto)</label><br>
+    <label><input type="radio" name="modalidad_actual" value="hibrido"> Trabajo híbrido (presencial y remoto)</label>
+
+    <h3>8.- Seleccione la modalidad de trabajo que usted prefiere.</h3>
+    <label><input type="radio" name="modalidad_preferida" value="presencial"> Trabajo presencial</label><br>
+    <label><input type="radio" name="modalidad_preferida" value="remoto"> Teletrabajo (Remoto)</label><br>
+    <label><input type="radio" name="modalidad_preferida" value="hibrido"> Trabajo híbrido (presencial y remoto)</label>
+
+    <h3>9.- Seleccione la modalidad de trabajo que usted prefiere</h3>
+
+    <label><input type="radio" name="modalidad_preferida" value="presencial"> Trabajo presencial</label><br>
+    <label><input type="radio" name="modalidad_preferida" value="remoto"> Teletrabajo (Remoto)</label><br>
+    <label><input type="radio" name="modalidad_preferida" value="hibrido"> Trabajo híbrido (presencial y remoto)</label><br>
+    
+    <h3>10.- Durante sus procesos de búsqueda de empleo, ¿qué tipo de pruebas o instrumentos de selección ha experimentado? (Seleccione más de una opción)</h3>
+
+    <table border="1">
+        <tr>
+            <th>Tipos de medios de selección</th>
+            <th>Seleccionar</th>
+        </tr>
+        <tr>
+            <td>a) Pruebas de conocimientos</td>
+            <td><input type="checkbox" name="pruebas_seleccion" value="pruebas_conocimientos"></td>
+        </tr>
+        <tr>
+            <td>b) Entrevistas de selección individual</td>
+            <td><input type="checkbox" name="pruebas_seleccion" value="entrevista_individual"></td>
+        </tr>
+        <tr>
+            <td>c) Entrevistas de selección grupal</td>
+            <td><input type="checkbox" name="pruebas_seleccion" value="entrevista_grupal"></td>
+        </tr>
+        <tr>
+            <td>d) Test de aptitudes intelectuales</td>
+            <td><input type="checkbox" name="pruebas_seleccion" value="test_aptitudes"></td>
+        </tr>
+        <tr>
+            <td>e) Test de personalidad</td>
+            <td><input type="checkbox" name="pruebas_seleccion" value="test_personalidad"></td>
+        </tr>
+        <tr>
+            <td>f) Otros (Especifique)</td>
+            <td>
+                <input type="checkbox" name="pruebas_seleccion" value="otro">
+                <input type="text" name="otro_pruebas" placeholder="Especifique">
+            </td>
+        </tr>
+    </table>
+    <h3>11.- Seleccione el nivel que desempeña /desempeñó sus actividades dentro de la empresa en el ámbito de Tecnologías de la Información</h3>
+
+<table border="1">
+    <tr>
+        <th>Niveles de desempeño</th>
+        <th>Seleccionar</th>
+    </tr>
+    <tr>
+        <td><strong>Nivel Operativo:</strong> Soporte técnico, mantenimiento o desarrollo de software.</td>
+        <td><input type="radio" name="nivel_desempeno" value="operativo"></td>
+    </tr>
+    <tr>
+        <td><strong>Nivel de Conocimiento:</strong> Análisis de datos, ciberseguridad, inteligencia artificial, arquitectura de software, Servicios en la Nube, etc.</td>
+        <td><input type="radio" name="nivel_desempeno" value="conocimiento"></td>
+    </tr>
+    <tr>
+        <td><strong>Nivel de Gestión y Administración:</strong> Gestión de proyectos tecnológicos, Jefaturas de área de la TIC</td>
+        <td><input type="radio" name="nivel_desempeno" value="gestion_administracion"></td>
+    </tr>
+    <tr>
+        <td><strong>Nivel Estratégico:</strong> Toma de decisiones, gerencia</td>
+        <td><input type="radio" name="nivel_desempeno" value="estrategico"></td>
+    </tr>
+</table>
+
+<h3>12.- ¿Cuál es el rango salarial mensual para profesionales en TI que percibió en su primer empleo?</h3>
+<p>Seleccione el rango que mejor se aplique:</p>
+
+<label><input type="radio" name="rango_salarial" value="menor_475"> Menor a $475 (SBU)</label><br>
+<label><input type="radio" name="rango_salarial" value="475_1000"> De $475 a $1000</label><br>
+<label><input type="radio" name="rango_salarial" value="1001_1500"> De $1001 a $1500</label><br>
+<label><input type="radio" name="rango_salarial" value="1501_2000"> De $1501 a $2000</label><br>
+<label><input type="radio" name="rango_salarial" value="2001_3000"> De $2001 a $3000</label><br>
+<label><input type="radio" name="rango_salarial" value="mayor_3000"> Mayor a $3000</label><br>
+
+    
+
+</section>
+
             
             <!-- Botón de Enviar -->
             <button type="submit">Enviar Encuesta</button>

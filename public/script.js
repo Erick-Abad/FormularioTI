@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function mostrarSubareas() {
         const subareaSelect = document.getElementById("subarea");
         if (!subareaSelect) return;
-        subareaSelect.innerHTML = ""; 
+        subareaSelect.innerHTML = "";
         subareaSelect.style.display = "block";
         subareaSelect.required = true;
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         preguntasDiv.style.display = empresaTi.value === "si" ? "block" : "none";
     }
 
-    // Capturar valores de preguntas con radio buttons de la Sección C
+    // Función para obtener valores de radio buttons
     function obtenerValoresRadio(name) {
         const opciones = document.getElementsByName(name);
         for (let i = 0; i < opciones.length; i++) {
@@ -88,42 +88,51 @@ document.addEventListener("DOMContentLoaded", function () {
         return null; // Si no se selecciona ninguna opción
     }
 
-    // Manejo del formulario y envío a la API
+    // Manejo del formulario y envío a la API con validación de preguntas obligatorias
     const form = document.getElementById("surveyForm");
     if (!form) return;
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        const requiredFields = [
+            { name: "primer_empleo", label: "¿En qué tiempo obtuvo su primer empleo?" },
+            { name: "importancia_conocimientos", label: "¿Qué tan importante considera que son los conocimientos adquiridos en la universidad para su primer empleo?" },
+            { name: "como_encontro_empleo", label: "¿Cómo encontró su empleo actual?" },
+            { name: "tipo_contrato", label: "Seleccione el tipo de contrato laboral que tuvo en su primer empleo como profesional de TI en Ecuador" },
+            { name: "modalidad_actual", label: "Seleccione la modalidad en la que trabaja actualmente." },
+            { name: "modalidad_preferida", label: "Seleccione la modalidad de trabajo que usted prefiere." },
+            { name: "nivel_desempeno", label: "Seleccione el nivel que desempeña / desempeñó sus actividades dentro de la empresa en el ámbito de Tecnologías de la Información" },
+            { name: "rango_salarial", label: "¿Cuál es el rango salarial mensual para profesionales en TI que percibió en su primer empleo?" }
+        ];
+
+        for (let field of requiredFields) {
+            if (!document.querySelector(`input[name="${field.name}"]:checked`)) {
+                alert(`Falta escoger el casillero: ${field.label}`);
+                document.querySelector(`input[name="${field.name}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+            }
+        }
+
+        // Verificación de al menos un checkbox en grupos de selección múltiple
+        const checkboxGroups = [
+            { name: "dificultades_empleo", label: "Seleccione los motivos que dificultan obtener un empleo en su área profesional" },
+            { name: "conocimientos_faltantes", label: "¿Qué conocimientos en su área considera que le hicieron falta?" },
+            { name: "pruebas_seleccion", label: "Durante sus procesos de búsqueda de empleo, ¿qué tipo de pruebas o instrumentos de selección ha experimentado?" }
+        ];
+
+        for (let group of checkboxGroups) {
+            const checkboxes = document.querySelectorAll(`input[name="${group.name}"]:checked`);
+            if (checkboxes.length === 0) {
+                alert(`Falta escoger el casillero: ${group.label}`);
+                document.querySelector(`input[name="${group.name}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+            }
+        }
+
         const formData = new FormData(form);
         const jsonObject = {};
-
-        // Capturar valores de input y selects normalmente
-        formData.forEach((value, key) => {
-            jsonObject[key] = value.trim();
-        });
-
-        // Capturar valores de las preguntas de la Sección C (Radio Buttons)
-        const competenciasGenericas = [
-            "pensamiento_critico", "resolucion_problemas", "comunicacion_oral", "comunicacion_escrita",
-            "trabajo_equipo", "liderazgo", "aprendizaje_continuo", "adaptabilidad", "etica_profesional",
-            "innovacion_emprendimiento", "trabajo_bajo_presion"
-        ];
-
-        competenciasGenericas.forEach((competencia) => {
-            jsonObject[competencia] = obtenerValoresRadio(competencia);
-        });
-
-        // Capturar valores de las preguntas de la Sección C (Selects)
-        const competenciasEspecificas = [
-            "desarrollo_software", "admin_sistemas_redes", "base_datos", "seguridad_informatica",
-            "gestion_proyectos_ti", "arquitectura_ti", "cloud_virtualizacion",
-            "devops_automatizacion", "adaptacion_nuevas_tecnologias"
-        ];
-
-        competenciasEspecificas.forEach((competencia) => {
-            jsonObject[competencia] = formData.get(competencia);
-        });
+        formData.forEach((value, key) => { jsonObject[key] = value.trim(); });
 
         try {
             const response = await fetch(`${window.location.origin}/api/sendEmail`, {

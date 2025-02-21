@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Verificar si los elementos existen antes de asignar eventos para evitar errores
+    // Verificar si los elementos existen antes de asignar eventos
     const tipoInstitucion = document.getElementById("tipo_institucion");
     const areaEmpresa = document.getElementById("area_empresa");
     const tamanoEmpresaSector = document.getElementById("tamano_empresa_sector");
@@ -90,40 +90,39 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
 
         const requiredFields = [
-            { name: "primer_empleo", label: "¿En qué tiempo obtuvo su primer empleo?" },
-            { name: "importancia_conocimientos", label: "¿Qué tan importante considera que son los conocimientos adquiridos en la universidad para su primer empleo?" },
-            { name: "como_encontro_empleo", label: "¿Cómo encontró su empleo actual?" },
-            { name: "tipo_contrato", label: "Seleccione el tipo de contrato laboral que tuvo en su primer empleo como profesional de TI en Ecuador" },
-            { name: "modalidad_actual", label: "Seleccione la modalidad en la que trabaja actualmente." },
-            { name: "modalidad_preferida", label: "Seleccione la modalidad de trabajo que usted prefiere." },
-            { name: "nivel_desempeno", label: "Seleccione el nivel que desempeña / desempeñó sus actividades dentro de la empresa en el ámbito de Tecnologías de la Información" },
-            { name: "rango_salarial", label: "¿Cuál es el rango salarial mensual para profesionales en TI que percibió en su primer empleo?" }
+            "primer_empleo",
+            "importancia_conocimientos",
+            "como_encontro_empleo",
+            "tipo_contrato",
+            "modalidad_actual",
+            "modalidad_preferida",
+            "nivel_desempeno",
+            "rango_salarial"
         ];
 
         for (let field of requiredFields) {
-            if (!document.querySelector(`input[name="${field.name}"]:checked`)) {
-                alert(`Falta escoger el casillero: ${field.label}`);
-                document.querySelector(`input[name="${field.name}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
+            if (!obtenerValoresRadio(field)) {
+                alert(`Por favor, complete la pregunta: ${field.replace(/_/g, " ")}`);
+                document.querySelector(`input[name="${field}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
                 return;
             }
         }
 
         const checkboxGroups = [
-            { name: "dificultades_empleo", label: "Seleccione los motivos que dificultan obtener un empleo en su área profesional" },
-            { name: "conocimientos_faltantes", label: "¿Qué conocimientos en su área considera que le hicieron falta?" },
-            { name: "pruebas_seleccion", label: "Durante sus procesos de búsqueda de empleo, ¿qué tipo de pruebas o instrumentos de selección ha experimentado?" }
+            "dificultades_empleo",
+            "conocimientos_faltantes",
+            "pruebas_seleccion"
         ];
 
         for (let group of checkboxGroups) {
-            const checkboxes = document.querySelectorAll(`input[name="${group.name}"]:checked`);
+            const checkboxes = document.querySelectorAll(`input[name="${group}"]:checked`);
             if (checkboxes.length === 0) {
-                alert(`Falta escoger el casillero: ${group.label}`);
-                document.querySelector(`input[name="${group.name}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
+                alert(`Por favor, seleccione al menos una opción en: ${group.replace(/_/g, " ")}`);
+                document.querySelector(`input[name="${group}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
                 return;
             }
         }
 
-        // Comentario: Agregamos la validación de las preguntas de la Sección E
         const requiredSectionE = [
             "calidad_academica",
             "instalaciones_recursos",
@@ -152,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (let question of requiredSectionE) {
             if (!obtenerValoresRadio(question)) {
-                alert(`Por favor, responda la pregunta: ${question.replace("_", " ")}`);
+                alert(`Por favor, responda la pregunta: ${question.replace(/_/g, " ")}`);
                 document.querySelector(`input[name="${question}"]`).scrollIntoView({ behavior: "smooth", block: "center" });
                 return;
             }

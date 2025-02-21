@@ -647,11 +647,175 @@
 <label><input type="radio" name="recomienda_ug" value="5"> (5) Totalmente de acuerdo</label><br>
 
 </section>
+<!-- Sección E: Ampliación de Estudios y Formación -->
+<section>
+    <h2>E. AMPLIACIÓN DE ESTUDIOS Y FORMACIÓN</h2>
+
+    <h3>1.- Seleccione su mayor nivel de estudios de posgrado registrado en Senescyt que ha obtenido</h3>
+    <label><input type="radio" name="nivel_posgrado" value="tercer_nivel"> Tercer Nivel</label><br>
+    <label><input type="radio" name="nivel_posgrado" value="especializacion"> Especialización</label><br>
+    <label><input type="radio" name="nivel_posgrado" value="maestria"> Maestría</label><br>
+    <label><input type="radio" name="nivel_posgrado" value="doctorado"> Doctorado</label><br>
+
+    <h3>2.- Seleccione los países donde realizó sus estudios de posgrado. Se puede escoger más de una opción.</h3>
+    <label><input type="checkbox" name="pais_posgrado" value="ecuador"> Ecuador</label><br>
+    <label><input type="checkbox" name="pais_posgrado" value="usa"> Estados Unidos</label><br>
+    <label><input type="checkbox" name="pais_posgrado" value="espana"> España</label><br>
+    <label><input type="checkbox" name="pais_posgrado" value="mexico"> México</label><br>
+    <label><input type="checkbox" name="pais_posgrado" value="argentina"> Argentina</label><br>
+    <label><input type="checkbox" name="pais_posgrado" value="otro" id="otro_pais_checkbox"> Otro (especifique): </label>
+    <input type="text" id="otro_pais" name="otro_pais" placeholder="Ingrese el país" style="display: none;"><br>
+
+    <h3>3.- Indique los recursos que utilizó para poder realizar el o los posgrados (se puede escoger más de una opción)</h3>
+    <label><input type="checkbox" name="recursos_posgrado" value="fondos_propios"> Fondos propios</label><br>
+    <label><input type="checkbox" name="recursos_posgrado" value="beca_empleador"> Beca del empleador</label><br>
+    <label><input type="checkbox" name="recursos_posgrado" value="beca_senescyt"> Beca Senescyt</label><br>
+    <label><input type="checkbox" name="recursos_posgrado" value="credito_bancario"> Crédito Educativo/Bancario</label><br>
+    <label><input type="checkbox" name="recursos_posgrado" value="beca_institucion"> Beca de la institución académica donde realizó los estudios.</label><br>
+    <label><input type="checkbox" id="otro_recurso_checkbox" name="recursos_posgrado" value="otro"> Otro, especifique: </label>
+    <input type="text" id="otro_recurso" name="otro_recurso" placeholder="Ingrese otro recurso" style="display: none;"><br>
+    
+    <h3>5.- ¿Con qué área del conocimiento están principalmente relacionados sus estudios de posgrado?</h3>
+    <label><input type="checkbox" name="area_posgrado" value="educacion"> Educación</label><br>
+    <label><input type="checkbox" name="area_posgrado" value="desarrollo_software"> Desarrollo de Software</label><br>
+    <label><input type="checkbox" name="area_posgrado" value="ciberseguridad"> Ciberseguridad</label><br>
+    <label><input type="checkbox" name="area_posgrado" value="ciencia_datos_ia"> Ciencia de Datos o Inteligencia Artificial</label><br>
+    <label><input type="checkbox" name="area_posgrado" value="redes_sistemas"> Redes y Sistemas</label><br>
+    
+    <h3>6.- Seleccione los tipos de formación en los cuáles estaría interesado participar dentro de la Universidad Guayaquil:</h3>
+    <label><input type="checkbox" name="formacion_interes" value="webinars"> Webinars</label><br>
+    <label><input type="checkbox" name="formacion_interes" value="masterclass"> Masterclass</label><br>
+    <label><input type="checkbox" name="formacion_interes" value="cursos"> Cursos</label><br>
+    <label><input type="checkbox" name="formacion_interes" value="diplomados"> Diplomados</label><br>
+    <label><input type="checkbox" name="formacion_interes" value="maestrias"> Maestrías</label><br>
+    <label><input type="checkbox" name="formacion_interes" value="doctorados"> Doctorados</label><br>
+    
+    <h3>7.- ¿Qué modalidades de estudio le interesarían para programas de maestría o educación continua? (Puede seleccionar más de una opción)</h3>
+<label><input type="checkbox" name="modalidad_estudio" value="presencial"> Presencial</label><br>
+<label><input type="checkbox" name="modalidad_estudio" value="virtual_tiempo_real"> Virtual en tiempo real (clases en línea con horario fijo, interacción en vivo con el instructor y compañeros)</label><br>
+<label><input type="checkbox" name="modalidad_estudio" value="virtual_flexible"> Virtual flexible (acceso a clases y materiales en línea en cualquier momento, sin horarios fijos para mayor flexibilidad)</label><br>
+<label><input type="checkbox" name="modalidad_estudio" value="hibrida"> Híbrida (combinación de clases presenciales y virtuales, con sesiones síncronas y asíncronas)</label><br>
+<label><input type="checkbox" name="modalidad_estudio" value="a_distancia"> A distancia (modalidad flexible que puede incluir tanto clases síncronas como asíncronas, sin necesidad de asistencia presencial)</label><br>
+
+<h3>8.- ¿En qué área(s) de estudio de posgrado le gustaría especializarse?</h3>
+
+<strong>1. Administración y Gestión en Tecnología</strong><br>
+<label><input type="checkbox" name="especializacion" value="gestion_proyectos_ti"> Gestión de Proyectos de TI</label><br>
+<label><input type="checkbox" name="especializacion" value="administracion_empresas_ti"> Administración de Empresas Tecnológicas</label><br>
+<label><input type="checkbox" name="especializacion" value="informatica_negocios"> Informática de Negocios</label><br>
+
+<strong>2. Seguridad y Auditoría de Sistemas</strong><br>
+<label><input type="checkbox" name="especializacion" value="auditoria_sistemas"> Auditoría de Sistemas</label><br>
+<label><input type="checkbox" name="especializacion" value="seguridad_informatica"> Seguridad Informática</label><br>
+<label><input type="checkbox" name="especializacion" value="ciberseguridad_normativa"> Ciberseguridad y cumplimiento normativo</label><br>
+
+<h3>3. Desarrollo de Software e Ingeniería</h3>
+<label><input type="checkbox" name="especializacion" value="desarrollo_software"> Desarrollo de Software</label><br>
+<label><input type="checkbox" name="especializacion" value="ingenieria_software"> Ingeniería de Software</label><br>
+<label><input type="checkbox" name="especializacion" value="arquitectura_servicios"> Arquitectura de Servicios</label><br>
+
+<h3>4. Redes y Tecnologías de Comunicación</h3>
+<label><input type="checkbox" name="especializacion" value="redes_telecomunicaciones"> Redes y Telecomunicaciones</label><br>
+<label><input type="checkbox" name="especializacion" value="redes_nube"> Redes en la Nube</label><br>
+
+<h3>5. Base de Datos y Gestión de la Información</h3>
+<label><input type="checkbox" name="especializacion" value="big_data"> Big Data</label><br>
+<label><input type="checkbox" name="especializacion" value="ciencias_datos"> Ciencias de Datos y Análisis de Datos</label><br>
+
+<h3>6. Inteligencia Artificial y Nuevas Tecnologías</h3>
+<label><input type="checkbox" name="especializacion" value="blockchain"> Blockchain</label><br>
+<label><input type="checkbox" name="especializacion" value="inteligencia_artificial"> Inteligencia Artificial</label><br>
+<label><input type="checkbox" name="especializacion" value="machine_learning"> Machine Learning</label><br>
+<label><input type="checkbox" name="especializacion" value="domotica"> Domótica</label><br>
+<label><input type="checkbox" name="especializacion" value="robotica"> Robótica</label><br>
+
+<h3>7. Educación</h3>
+<label><input type="checkbox" name="especializacion" value="ia_educacion"> Inteligencia Artificial en la Educación</label><br>
+<label><input type="checkbox" name="especializacion" value="entornos_virtuales"> Entornos Virtuales de Aprendizaje</label><br>
+
+<h3>9. ¿En cuál de las siguientes maestrías que ofrece nuestra universidad estaría interesado en inscribirse?</h3>
+<p>Puede seleccionar con (X) más de una opción</p>
+
+<table border="1">
+    <tr>
+        <th>No.</th>
+        <th>Nombre de la Maestría</th>
+        <th>Seleccionar</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Inteligencia Artificial Aplicada – En línea</td>
+        <td><input type="checkbox" name="maestria" value="ia_aplicada"></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Ciberseguridad - En línea</td>
+        <td><input type="checkbox" name="maestria" value="ciberseguridad"></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Ingeniería en Software - En línea</td>
+        <td><input type="checkbox" name="maestria" value="ingenieria_software"></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Internet de las Cosas – En línea</td>
+        <td><input type="checkbox" name="maestria" value="iot"></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Telecomunicaciones - Híbrida</td>
+        <td><input type="checkbox" name="maestria" value="telecomunicaciones"></td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Ciencias y Tecnologías de la Computación – En línea</td>
+        <td><input type="checkbox" name="maestria" value="ciencias_tecnologias_computacion"></td>
+    </tr>
+</table>
+
+<h3>10. ¿En cuál(es) de las siguientes certificaciones profesionales estaría interesado en obtener?</h3>
+
+<h4>1. Certificaciones de Seguridad Informática</h4>
+<label><input type="checkbox" name="certificacion" value="cissp"> Certified Information Systems Security Professional (CISSP)</label><br>
+<label><input type="checkbox" name="certificacion" value="ceh"> Certified Ethical Hacker (CEH)</label><br>
+<label><input type="checkbox" name="certificacion" value="comptia"> CompTIA Security+</label><br>
+
+<h4>2. Certificaciones de Gestión de Proyectos</h4>
+<label><input type="checkbox" name="certificacion" value="pmp"> Project Management Professional (PMP)</label><br>
+<label><input type="checkbox" name="certificacion" value="csm"> Certified ScrumMaster (CSM)</label><br>
+
+<h4>3. Certificaciones de Redes y Sistemas</h4>
+<label><input type="checkbox" name="certificacion_redes" value="ccna"> Cisco Certified Network Associate (CCNA)</label><br>
+<label><input type="checkbox" name="certificacion_redes" value="azure_admin"> Microsoft Certified: Azure Administrator Associate</label><br>
+
+<h4>4. Certificaciones de Desarrollo de Software</h4>
+<label><input type="checkbox" name="certificacion_software" value="oracle_java"> Oracle Certified Professional Java SE Programmer</label><br>
+<label><input type="checkbox" name="certificacion_software" value="azure_dev"> Microsoft Certified: Azure Developer Associate</label><br>
+
+<h4>5. Certificaciones de Computación en la Nube</h4>
+<label><input type="checkbox" name="certificacion_nube" value="aws_solutions"> AWS Certified Solutions Architect – Associate</label><br>
+<label><input type="checkbox" name="certificacion_nube" value="google_cloud"> Google Professional Cloud Architect</label><br>
+
+<h4>6. Certificaciones de Análisis de Datos e Inteligencia Artificial</h4>
+<label><input type="checkbox" name="certificacion_datos" value="microsoft_data"> Microsoft Certified: Data Analyst Associate</label><br>
+<label><input type="checkbox" name="certificacion_datos" value="ibm_data_science"> IBM Data Science Professional Certificate</label><br>
+
+</section>
 
             
             <!-- Botón de Enviar -->
             <button type="submit">Enviar Encuesta</button>
         </form>
     </div>
+    <footer style="text-align: center; margin-top: 30px; padding: 10px; font-size: 14px;">
+        <p>© 2025 Erick Abad Monserrate - Todos los derechos reservados</p>
+        <p>
+            <a href="https://portafolio-erick-abad.vercel.app/" target="_blank" 
+               style="text-decoration: none; color: blue; font-weight: bold;">
+                Visita mi Portafolio
+            </a>
+        </p>
+    </footer>
 </body>
 </html>
